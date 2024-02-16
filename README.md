@@ -1,5 +1,5 @@
 # Frontend Mentor Challenge
 
-This project comes from [IP Address Tracker](https://www.frontendmentor.io/challenges/ip-address-tracker-I8-0yYAH0).
+This project comes from [Interactive card details form](https://www.frontendmentor.io/challenges/interactive-card-details-form-XpS8cKZDWw).
 
-![preview](/starter_files/design/desktop-preview.jpg "Interactive rating component")
+![preview](/starter_files/design/desktop-preview.jpg "Interactive card details form")

@@ -1,23 +1,21 @@
-@use 'styles/variables';
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap');
+@use 'styles/variables' as v;
 
-body {
-  min-height: 100vh;
-  width: 100%;
-  margin: 0;
-  font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+:root {
+  font-family: v.$ff;
+  font-weight: 400;
+  font-size: v.$font-size;
+
+  color: v.$color-dark-violet;
+  background-color: v.$color-white;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-weight: 400;
-  background-color: variables.$color-very-dark-blue;
-  color: variables.$color-light-grey;
-  display: grid;
-  place-items: center;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+*, *::before, *::after {
+  box-sizing: border-box;
+  font-family: v.$ff;
+  font-size: v.$font-size;
 }
