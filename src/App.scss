@@ -1,16 +1,86 @@
 @use 'styles/variables' as v;
 
 #root {
-  max-width: 1280px;
+  max-width: 1170px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 1rem;
   text-align: center;
+  flex-grow: 1;
+}
+
+main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+
+  .cards {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+
+    > div {
+      display: flex;
+      position: relative;
+    }
+
+    .card-front {
+      margin-left: 40px;
+      color: v.$color-white;
+
+      .card-front__logo {
+        position: absolute;
+        top: 30px;
+        left: 30px;
+      }
+
+      .card-front__number {
+        position: absolute;
+        top: 110px;
+        left: 30px;
+        letter-spacing: 4px;
+        font-size: 1.5rem;
+        font-weight: 400;
+      }
+
+      .card-front__name {
+        position: absolute;
+        top: 180px;
+        left: 30px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-size: .875rem;
+      }
+
+      .card-front__exp-date {
+        position: absolute;
+        top: 180px;
+        left: 350px;
+        letter-spacing: 2px;
+        font-size: .875rem;
+      }
+    }
+
+    .card-back {
+      margin-left: 140px;
+
+      .card-back__cvc {
+        position: absolute;
+        top: 95px;
+        left: 350px;
+        color: v.$color-white;
+        font-weight: 500;
+        font-size: .875rem;
+        letter-spacing: 2px;
+      }
+    }
+  }
 }
 
 form {
   display: flex;
   flex-direction: column;
-  max-width: 400px;
+  width: 380px;
   gap: 20px;
 
   div {
@@ -18,13 +88,28 @@ form {
     flex-direction: column;
     gap: 10px;
 
-    .exp-date {
-      flex-direction: row;
-
-      & > div {
-        flex: 1;
-      }
+    label {
+      text-wrap: nowrap;
     }
+
+    &.exp-date {
+      flex-direction: row;
+      gap: 10px;      
+
+      > input {
+        width: 100% !important;
+      }
+    }  
+    
+  }
+
+  & > div:last-of-type {
+    flex-direction: row;
+  }
+
+  & > div > div {
+    flex: 1 1 0;
+    width: 0;
   }
 
   label {
@@ -38,9 +123,7 @@ form {
   input {
     padding: 10px;
     border-radius: 8px;
-    border: 1px solid v.$color-light-grey;
-    width: auto !important;
-    
+    border: 1px solid v.$color-light-grey;   
 
     &::placeholder {
       color: v.$color-light-grey;
@@ -59,6 +142,122 @@ form {
     &:hover {
       //filter: brightness(200%);
       opacity: .8;
+    }
+  }
+
+  p[role=alert] {
+    margin-top: -15px;
+    margin-bottom: 0;
+    text-align: left;
+    color: v.$color-error;
+    font-size: .8rem;
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  main .cards .card-front {
+    margin-left: 0;
+  }
+  main .cards .card-back {
+    margin-left: 100px;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  main {
+    flex-direction: column;
+    .cards {
+      position: relative;
+      .card-front {
+        margin-left: -50px;
+      }
+      .card-back {
+        position: absolute;
+        top: -139px;
+        left: 0;
+        z-index: -1;
+        margin-left: 50px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+
+}
+
+
+@media screen and (max-width: 576px) {
+
+  main {
+    .cards {
+      position: relative;
+      .card-front {
+        margin-left: -60px;
+        margin-top: -180px;
+
+        .card-front__img {
+          width: 290px;
+          height: auto;
+        }
+
+        .card-front__logo {
+          top: 20px;
+          left: 20px;
+          height: 30px;
+        }
+  
+        .card-front__number {
+          top: 65px;
+          left: 20px;
+          letter-spacing: 3px;
+          font-size: .975rem;
+        }
+  
+        .card-front__name {
+          top: 115px;
+          left: 20px;
+          letter-spacing: 2px;
+          font-size: .575rem;
+        }
+  
+        .card-front__exp-date {
+          top: 115px;
+          left: 230px;
+          font-size: .575rem;
+        }
+      }
+      .card-back {
+        position: absolute;
+        top: -270px;
+        left: -55px;
+        z-index: -1;
+
+        .card-back__img {
+          width: 290px;
+          height: auto;
+        }
+
+        .card-back__cvc {
+          top: 61px;
+          left: 232px;
+          font-size: .575rem;
+          font-weight: 400;
+          letter-spacing: 1px;
+        }
+      }
+    }
+  }
+
+  form {
+    width: 100%;
+
+    label {
+      font-size: .675rem;
+    }
+
+    & > div:last-of-type {
+      gap: 10px;
     }
   }
 }

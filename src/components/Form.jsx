@@ -55,6 +55,7 @@ export function Form() {
               {
               ...register("cardExpirationMonth",
                 {
+                  required: true,
                   min: 0,
                   max: 12
                 })
@@ -66,6 +67,7 @@ export function Form() {
               type="number"
               {...register("cardExpirationYear",
                 {
+                  required: true,
                   min: 0,
                   max: 99
                 })
@@ -74,7 +76,7 @@ export function Form() {
               aria-invalid={errors.cardExpirationYear ? "true" : "false"}
             />
           </div>
-          {errors.cardExpirationMonth?.type === "required" || errors.cardExpirationYear?.type === "required" && (
+          {(errors.cardExpirationMonth?.type === "required" || errors.cardExpirationYear?.type === "required") && (
           <p role="alert">Can't be blank</p>
         )}
         </div>
@@ -84,6 +86,7 @@ export function Form() {
             type="number"
             {...register("cardCVC",
               {
+                required: true,
                 min: 0,
                 max: 999
               })

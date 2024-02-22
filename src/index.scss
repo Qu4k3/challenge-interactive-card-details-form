@@ -19,3 +19,42 @@
   font-family: v.$ff;
   font-size: v.$font-size;
 }
+
+body {
+  margin: 0;
+  padding: 0;
+  display:flex;
+  align-items: center;
+  min-height:100vh;
+
+  &:before {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 38%;
+    background-image: url("./assets/bg-main-desktop.png");
+    background-size: cover;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  body {
+    &:before {
+      height: 340px;
+      width: 100%;
+      background-image: url("./assets/bg-main-mobile.png");
+      background-size: cover;
+    }
+  }
+}
+
+@media screen and (max-width: 576px) {
+  body {
+    &:before {
+      height: 235px;
+    }
+  }
+}
