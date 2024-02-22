@@ -88,10 +88,6 @@ form {
     flex-direction: column;
     gap: 10px;
 
-    label {
-      text-wrap: nowrap;
-    }
-
     &.exp-date {
       flex-direction: row;
       gap: 10px;      
@@ -110,6 +106,7 @@ form {
   & > div > div {
     flex: 1 1 0;
     width: 0;
+    justify-content: flex-end;
   }
 
   label {
@@ -188,13 +185,17 @@ form {
 
 
 @media screen and (max-width: 576px) {
+  body {
+    align-items: baseline !important;
+  }
 
   main {
     .cards {
       position: relative;
+      margin-top: 190px;
       .card-front {
         margin-left: -60px;
-        margin-top: -180px;
+        margin-top: -90px;
 
         .card-front__img {
           width: 290px;
@@ -229,7 +230,7 @@ form {
       }
       .card-back {
         position: absolute;
-        top: -270px;
+        top: -180px;
         left: -55px;
         z-index: -1;
 
